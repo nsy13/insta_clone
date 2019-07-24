@@ -4,7 +4,6 @@ ruby '2.5.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.3.1'
-gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
 gem 'faker', '~> 1.9', '>= 1.9.3'
