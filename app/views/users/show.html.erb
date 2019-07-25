@@ -11,6 +11,12 @@
       <% if @user == current_user %>
         <%= link_to "編集", edit_user_registration_path %>
       <% end %>
+      <% @posts.each do |post| %>
+        <%= post.content %>
+        <%= image_tag post.pictures[0].url %>
+        <%= image_tag post.pictures[1].url %>
+        <%= image_tag post.pictures[2].url %>
+      <% end %>
     </section>
   </aside>
 </div>

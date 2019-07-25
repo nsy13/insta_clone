@@ -7,9 +7,9 @@
     <%= f.text_area :content, placeholder: "コメントを入力" %>
   </div>
   <%= f.submit "投稿する", class: "btn btn-primary" %>
-  <%# <span class="picture">
-    <%= f.file_field :picture %>
-  <%# </span> %>
+  <span class="picture">
+    <%= f.file_field :pictures, multiple: true %>
+  </span>
 <% end %>
 <% else %>
   <p>世界中の人と写真をシェアしよう</p>
