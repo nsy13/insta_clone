@@ -13,9 +13,9 @@
       <% end %>
       <% @posts.each do |post| %>
         <%= post.content %>
-        <%= image_tag post.pictures[0].url %>
-        <%= image_tag post.pictures[1].url %>
-        <%= image_tag post.pictures[2].url %>
+        <% post.pictures.each do |picture| %>
+          <%= image_tag picture.thumb.url %>
+        <% end %>
       <% end %>
     </section>
   </aside>
