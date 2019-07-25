@@ -1,8 +1,20 @@
 <% provide(:title, "Home") %>
 
 <h1>InstaClone</h1>
-<p>世界中の人と写真をシェアしよう</p>
-<%= link_to "アカウント作成", "#" %>
-<p>Facebookログイン</p>
-<p>----- or -----</p>
-<%= link_to "ログイン", "#" %>
+<% if user_signed_in? %>
+  <%= form_for @post do |f| %>
+  <div class="field">
+    <%= f.text_area :content, placeholder: "コメントを入力" %>
+  </div>
+  <%= f.submit "投稿する", class: "btn btn-primary" %>
+  <%# <span class="picture">
+    <%= f.file_field :picture %>
+  <%# </span> %>
+<% end %>
+<% else %>
+  <p>世界中の人と写真をシェアしよう</p>
+  <%= link_to "アカウント作成", "#" %>
+  <p>Facebookログイン</p>
+  <p>----- or -----</p>
+  <%= link_to "ログイン", "#" %>
+<% end %>
