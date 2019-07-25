@@ -8,4 +8,5 @@ Rails.application.routes.draw do
     delete 'logout', to: 'devise/sessions#destroy'
   end
   resources :users, only: [:show]
+  resources :posts, only: [:index, :create, :show, :destroy]
 end
