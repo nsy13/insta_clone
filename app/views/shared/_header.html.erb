@@ -9,7 +9,7 @@
               <%= current_user.email %><b class="caret"></b>
             </a>
             <div class="dropdown-menu">
-              <%= link_to "マイページ", current_user, class: "dropdown-item" %>
+              <%= link_to "マイページ", current_user, class: "dropdown-item", data: { "turbolinks" => false } %>
               <%= link_to "プロフィール編集", "#", class: "dropdown-item" %>
               <%= link_to "ログアウト", logout_path, method: :delete, class: "dropdown-item" %>
             </div>

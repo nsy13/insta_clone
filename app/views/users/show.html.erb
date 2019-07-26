@@ -12,12 +12,13 @@
         <%= link_to "編集", edit_user_registration_path %>
       <% end %>
       <% @posts.each do |post| %>
-        <%= post.content %>
+        <%= link_to post.title, post_path(post) %>
         <div class="bxslider">
           <% post.pictures.each do |picture| %>
             <%= image_tag picture.thumb.url %>
           <% end %>
         </div>
+        <%= post.content %>
       <% end %>
     </section>
   </aside>

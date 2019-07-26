@@ -4,6 +4,7 @@
 <% if user_signed_in? %>
   <%= form_for @post do |f| %>
   <div class="field">
+    <%= f.text_field :title, placeholder: "タイトルを入力" %>
     <%= f.text_area :content, placeholder: "コメントを入力" %>
   </div>
   <%= f.submit "投稿する", class: "btn btn-primary" %>
