@@ -13,9 +13,11 @@
       <% end %>
       <% @posts.each do |post| %>
         <%= post.content %>
-        <% post.pictures.each do |picture| %>
-          <%= image_tag picture.thumb.url %>
-        <% end %>
+        <div class="bxslider">
+          <% post.pictures.each do |picture| %>
+            <%= image_tag picture.thumb.url %>
+          <% end %>
+        </div>
       <% end %>
     </section>
   </aside>
