@@ -1,11 +1,12 @@
 class CommentsController < ApplicationController
   def create
-    @comment = Comment.new(comment_params)
-    if @comment.save
+    @post = Post.find(params[:comment][:post_id])
+    comment = current_user.comments.build(comment_params)
+    if comment.save
       flash[:success] = "コメントを投稿しました"
-      redirect_to post_path
+      redirect_to post_path(@post)
     else
-      render 'posts/show'
+      redirect_to root_path
     end
   end
 
@@ -15,6 +16,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:content)
+    params.require(:comment).permit(:content, :post_id)
   end
 end

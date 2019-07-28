@@ -1,3 +1,18 @@
 <% provide(:title, @user.user_name) %>
 
+<%= "User: #{@user.id}, Post: #{@post.id}" %>
 <%= image_tag @post.pictures[0].url %>
+<div>
+  <%= form_for(@comment, url: comments_path) do |f| %>
+    <%= f.label :comment, "コメント" %>
+    <%= f.text_area :content, class: "form-control", placeholder: "コメントを入力する" %>
+    <%= hidden_field_tag 'comment[post_id]', @post.id %>
+
+    <%= f.submit "投稿", class: "btn btn-primary" %>
+  <% end %>
+</div>
+<div>
+  <% @comments.each do |comment| %>
+    <%= comment.content %>
+  <% end %>
+</div>
