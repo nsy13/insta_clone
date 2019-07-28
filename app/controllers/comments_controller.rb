@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :logged_in_user, only: [:create, :destroy]
+
   def create
     @post = Post.find(params[:comment][:post_id])
     comment = current_user.comments.build(comment_params)
