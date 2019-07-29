@@ -3,7 +3,11 @@
   <aside class="col-md-4">
     <section class="user_info">
       <h1>
-        <%= image_tag @user.gravatar_url %>
+        <% if @user.image %>
+          <%= image_tag @user.image %>
+        <% else %>
+          <%= image_tag @user.gravatar_url %>
+        <% end %>
         <%= @user.user_name %>
         <%= @user.email %>
       </h1>

@@ -20,6 +20,7 @@ class User < ApplicationRecord
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
       user.user_name = auth.info.name
+      user.image = auth.info.image
     end
   end
 
