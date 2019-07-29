@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'kaminari'
 gem "mini_magick"
+gem 'omniauth-facebook'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.3'
@@ -23,6 +24,7 @@ gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'dotenv-rails'
   gem 'rspec-rails', '~> 3.6.0'
   gem 'rubocop-airbnb'
 end
@@ -36,7 +38,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '>= 2.15'
+  gem 'capybara', '~> 3.26.0'
   gem 'selenium-webdriver'
   gem 'webdriver'
 end

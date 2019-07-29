@@ -28,3 +28,5 @@
 
 # Ignore 'picture' files.
 /public/uploads
+
+/.env
