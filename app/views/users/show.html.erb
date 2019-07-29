@@ -7,6 +7,8 @@
         <%= @user.user_name %>
         <%= @user.email %>
       </h1>
+      <%= link_to "#{@user.following.count}フォロー", following_user_path(@user) %>
+      <%= link_to "#{@user.followers.count}フォロワー", followers_user_path(@user) %>
       <%# あとでメソッド化してリファクタリング %>
       <% if @user == current_user %>
         <%= link_to "編集", edit_user_registration_path %>
