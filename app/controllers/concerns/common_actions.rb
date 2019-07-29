@@ -5,6 +5,7 @@ module CommonActions
 
   included do
     helper_method :logged_in_user
+  end
 
   def logged_in_user
     unless user_signed_in?

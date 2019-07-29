@@ -30,5 +30,6 @@
 <div>
   <% @comments.each do |comment| %>
     <%= comment.content %>
+    <%= link_to "削除", comment, method: :delete %>
   <% end %>
 </div>
