@@ -1,39 +1,36 @@
-<h2>Sign up</h2>
+<div class="row">
+  <div class="col-md-8 col-md-offset-4 signup-form">
+    <h2>Sign up</h2>
+    <p class="lead">メールアドレスで登録</p>
+    <%= form_for(resource, class: "form-group", as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="field">
+        <%= f.text_field :full_name, autofocus: true, autocomplete: "full_name", placeholder: "名前", class: "form-control" %>
+      </div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="field">
+        <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name", placeholder: "ユーザー名", class: "form-control" %>
+      </div>
 
-  <div class="field">
-    <%= f.label "名前" %><br />
-    <%= f.text_field :full_name, autofocus: true, autocomplete: "full_name" %>
+      <div class="field">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード(#{@minimum_password_length}文字以上)", class: "form-control" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "登録する" %>
+      </div>
+    <% end %>
+    <div class="sns-login">
+      <p class="lead">メールアドレス以外で登録する</p>
+      <%= link_to user_facebook_omniauth_authorize_path, class: "facebook-link" do %>
+        <i class="fab fa-facebook"></i>
+      <% end %>
+    </div>
+
+    <%= render "devise/shared/links" %>
   </div>
-
-  <div class="field">
-    <%= f.label "ユーザーID" %><br />
-    <%= f.text_field :email, autofocus: true, autocomplete: "user_name" %>
-  </div>
-
-  <div class="field">
-    <%= f.label "メールアドレス" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label "パスワード" %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %>文字以上)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label "パスワード（再入力）" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "登録する" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

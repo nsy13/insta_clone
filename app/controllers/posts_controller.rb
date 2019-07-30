@@ -6,6 +6,7 @@ class PostsController < ApplicationController
       flash[:success] = "投稿しました"
       redirect_to root_url
     else
+      @feed_items = []
       render 'static_pages/home'
     end
   end

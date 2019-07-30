@@ -1,11 +1,13 @@
 # user
 User.create!(user_name: "Test User",
+             full_name: "Test Tarou",
              email: "test@test.com",
              password: "hogehoge",
              password_confirmation: "hogehoge")
 
 50.times do |n|
-  User.create!(user_name: Faker::Name.name,
+  User.create!(user_name: "Test User No.#{n}",
+               full_name: Faker::Name.name,
                email: "test#{n}@test.com",
                password: "hogehoge",
                password_confirmation: "hogehoge")

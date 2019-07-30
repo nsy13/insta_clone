@@ -1,21 +1,47 @@
-<% provide(:title, "Home") %>
-
-<h1>InstaClone</h1>
 <% if user_signed_in? %>
-  <%= form_for @post do |f| %>
-  <div class="field">
-    <%= f.text_field :title, placeholder: "タイトルを入力" %>
-    <%= f.text_area :content, placeholder: "コメントを入力" %>
+  <div class="page-body">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 dashboard">
+          <div class="profile-contents">
+            <div class="profile-user-info">
+              <%= render 'shared/user_info' %>
+            </div>
+            <div class="profile-stats">
+              <%= render 'shared/stats'%>
+            </div>
+          </div>
+          <div class="following">
+            <%= render 'shared/following' %>
+          </div>
+          <div class="followers">
+            <%= render 'shared/followers'%>
+          </div>
+        </div>
+        <div class="col-md-8 feed">
+          <%= render 'shared/feed' %>
+        </div>
+      </div>
+    </div>
   </div>
-  <%= f.submit "投稿する", class: "btn btn-primary" %>
-  <span class="picture">
-    <%= f.file_field :pictures, multiple: true %>
-  </span>
-<% end %>
 <% else %>
-  <p>世界中の人と写真をシェアしよう</p>
-  <%= link_to "アカウント作成", "#" %>
-  <p>Facebookログイン</p>
-  <p>----- or -----</p>
-  <%= link_to "ログイン", "#" %>
+  <div class="page-body">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="top-message">
+            <h1>InstaClone</h1>
+            <p>世界中の人と写真をシェアしよう</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="signup-block">
+            <%= link_to "メールアドレスで登録", new_user_registration_path, class: "btn btn-link" %>
+            <p>or</p>
+            <%= link_to "Facebookアカウントで登録", user_facebook_omniauth_authorize_path, class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>
