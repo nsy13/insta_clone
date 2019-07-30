@@ -4,7 +4,7 @@ module CommonActions
   extend ActiveSupport::Concern
 
   included do
-    helper_method :logged_in_user
+    helper_method :logged_in_user, :unread_count
   end
 
   def logged_in_user

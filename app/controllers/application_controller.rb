@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include CommonActions
+  include NotificationsHelper
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected

@@ -1,0 +1,14 @@
+<% provide(:title, "通知一覧") %>
+
+<div>
+  <% current_user.notifications.each do |notification| %>
+    <% if notification.like_user_id? %>
+      <%= avatar(user(notification.like_user_id)) %>
+      <%= "#{user(notification.like_user_id)}さんがあなたの投稿をお気に入りに追加しました" %><br />
+    <% elsif notification.comment_user_id? %>
+      <%= avatar(user(notification.comment_user_id)) %>
+      <%= "#{user(notification.comment_user_id)}さんがあなたの投稿にコメントしました" %><br />
+    <% end %>
+  <%= image_tag post(notification.post_id).pictures[0].thumb_mini.url %><br />
+  <% end %>
+</div>
