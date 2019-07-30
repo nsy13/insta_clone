@@ -14,14 +14,14 @@
 <div class="like-form">
   <% if like = Like.find_by(user_id: current_user.id, post_id: @post.id) %>
     <%= link_to like, method: :delete do %>
-      <span class="fa fa-heart like-btn-unlike">お気に入り済み</span>
+      <span class="fas fa-heart like-btn-unlike">お気に入り済み</span>
     <% end %>
   <% else %>
     <%= form_for(@like, url: likes_path) do |f| %>
       <%= f.label :like %>
       <%= hidden_field_tag 'like[post_id]', @post.id %>
       <%= button_tag(class: "btn") do %>
-        <%= content_tag :span, "お気に入りに入れる", class: "fa fa-heart like-btn-unlike"%>
+      <%= content_tag :span, "お気に入りに入れる", class: "fas fa-heart like-btn-unlike"%>
       <% end %>
     <% end %>
   <% end %>
