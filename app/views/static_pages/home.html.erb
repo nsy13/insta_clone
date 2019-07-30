@@ -7,15 +7,16 @@
             <div class="profile-user-info">
               <%= render 'shared/user_info' %>
             </div>
-            <div class="profile-stats">
-              <%= render 'shared/stats'%>
+          </div>
+          <div class="relationships">
+            <div class="following">
+              <strong id="following" class="stat"><%= current_user.following.count %></strong>フォロー
+              <%= render 'shared/following' %>
             </div>
-          </div>
-          <div class="following">
-            <%= render 'shared/following' %>
-          </div>
-          <div class="followers">
-            <%= render 'shared/followers'%>
+            <div class="followers">
+              <strong id="followers" class="stat"><%= current_user.followers.count %></strong>フォロワー
+              <%= render 'shared/followers'%>
+            </div>
           </div>
         </div>
         <div class="col-md-8 feed">
