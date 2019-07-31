@@ -1,6 +1,6 @@
 <% provide(:title, "マイページ") %>
 <div class="row">
-  <div class="col-md-2">
+  <div class="col-md-2 dashboard">
     <%= render 'shared/dashboard' %>
     <%= render 'shared/follow_form' %>
     <% if @user == current_user %>
@@ -10,13 +10,7 @@
   <div class="posts col-md-10 col-md-offset-4">
     <% @posts.each do |post| %>
       <div class="slider">
-        <%= link_to post.title, post_path(post) %>
-        <div class="bxslider-mini">
-          <% post.pictures.each do |picture| %>
-            <%= image_tag picture.thumb.url %>
-          <% end %>
-        </div>
-        <%= post.content %>
+        <%= render 'shared/post_slider_mini', post: post %>
         <div class="like-form">
           <%= render 'shared/like_form', { post: post, like: @like } %>
         </div>

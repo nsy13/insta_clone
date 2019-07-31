@@ -1,33 +1,29 @@
 <% if user_signed_in? %>
-  <div class="page-body">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-2 dashboard">
-          <%= render 'shared/dashboard' %>
-        </div>
-        <div class="col-md-10 feed">
-          <%= render 'shared/feed' %>
-        </div>
-      </div>
+  <div class="row">
+    <div class="col-md-2 dashboard">
+      <%= render 'shared/dashboard' %>
+    </div>
+    <div class="feed col-md-10 col-md-offset-4">
+      <%= render 'shared/feed' %>
     </div>
   </div>
+</div>
+</div>
 <% else %>
-  <div class="page-body">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="top-message">
-            <h1>InstaClone</h1>
-            <p>世界中の人と写真をシェアしよう</p>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="signup-block">
-            <%= link_to "メールアドレスで登録", new_user_registration_path, class: "btn btn-link" %>
-            <p>or</p>
-            <%= link_to "Facebookアカウントで登録", user_facebook_omniauth_authorize_path, class: "btn btn-primary" %>
-          </div>
-        </div>
+<div class="page-body">
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="top-message">
+        <h1>InstaClone</h1>
+        <p>世界中の人と写真をシェアしよう</p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="signup-block">
+        <%= link_to "メールアドレスで登録", new_user_registration_path, class: "btn btn-link" %>
+        <p>or</p>
+        <%= link_to "Facebookアカウントで登録", user_facebook_omniauth_authorize_path, class: "btn btn-primary" %>
       </div>
     </div>
   </div>

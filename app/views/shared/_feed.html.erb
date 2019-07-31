@@ -1,6 +1,16 @@
 <% if @feed_items.any? %>
   <ol class="posts">
-    <%= render @feed_items %>
+    <% @feed_items.each do |feed_item| %>
+      <div class="slider">
+        <%= render 'shared/post_slider_mini', post: feed_item %>
+        <div class="like-form">
+          <%= render 'shared/like_form', { post: feed_item, like: @like } %>
+        </div>
+        <div class="comment-form">
+          <%= render 'shared/comment_form', { post: feed_item, comment: @comment }%>
+        </div>
+      </div>
+    <% end %>
   </ol>
   <%= paginate @feed_items %>
 <% end %>

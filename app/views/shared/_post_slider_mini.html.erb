@@ -1,0 +1,7 @@
+<%= link_to post.title, post_path(post) %>
+<div class="bxslider-mini">
+  <% post.pictures.each do |picture| %>
+    <%= image_tag picture.thumb.url %>
+  <% end %>
+</div>
+<%= post.content %>
