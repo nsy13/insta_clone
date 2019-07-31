@@ -1,0 +1,15 @@
+<div class="profile-contents">
+  <div class="profile-user-info">
+    <%= render 'shared/user_info' %>
+  </div>
+</div>
+<div class="relationships">
+  <div class="following">
+    <strong id="following" class="stat"><%= current_user.following.count %></strong>フォロー
+    <%= render 'shared/following' %>
+  </div>
+  <div class="followers">
+    <strong id="followers" class="stat"><%= current_user.followers.count %></strong>フォロワー
+    <%= render 'shared/followers'%>
+  </div>
+</div>

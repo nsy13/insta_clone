@@ -1,35 +1,26 @@
 <% provide(:title, @user.user_name) %>
 
-<%= "User: #{@user.id}, Post: #{@post.id}" %>
-<%= image_tag @post.pictures[0].url %>
-<div>
-  <%= form_for(@comment, url: comments_path) do |f| %>
-    <%= f.label :comment, "コメント" %>
-    <%= f.text_area :content, class: "form-control", placeholder: "コメントを入力する" %>
-    <%= hidden_field_tag 'comment[post_id]', @post.id %>
-
-    <%= f.submit "投稿", class: "btn btn-primary" %>
-  <% end %>
-</div>
-<div class="like-form">
-  <% if like = Like.find_by(user_id: current_user.id, post_id: @post.id) %>
-    <%= link_to like, method: :delete do %>
-      <span class="fas fa-heart like-btn-unlike">お気に入り済み</span>
-    <% end %>
-  <% else %>
-    <%= form_for(@like, url: likes_path) do |f| %>
-      <%= f.label :like %>
-      <%= hidden_field_tag 'like[post_id]', @post.id %>
-      <%= button_tag(class: "btn") do %>
-      <%= content_tag :span, "お気に入りに入れる", class: "fas fa-heart like-btn-unlike"%>
+<div class="row">
+  <div class="col-md-2 dashboard">
+    <%= render 'shared/dashboard' %>
+  </div>
+  <div class="col-md-10">
+    <div class="bxslider-big">
+      <% @post.pictures.each do |picture| %>
+        <%= image_tag picture.url %>
       <% end %>
-    <% end %>
-  <% end %>
-<div>
-
-<div>
-  <% @comments.each do |comment| %>
-    <%= comment.content %>
-    <%= link_to "削除", comment, method: :delete %>
-  <% end %>
+    </div>
+    <div class="like-form">
+      <%= render 'shared/like_form' %>
+    </div>
+    <div class="comment-form">
+      <%= render 'shared/comment_form' %>
+    </div>
+    <div>
+      <% @comments.each do |comment| %>
+        <%= comment.content %>
+        <%= link_to "削除", comment, method: :delete %>
+      <% end %>
+    </div>
+  </div>
 </div>

@@ -1,44 +1,47 @@
-<% provide(:title, @user.user_name) %>
+<% provide(:title, "マイページ") %>
 <div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <% if @user.image %>
-          <%= image_tag @user.image %>
-        <% else %>
-          <%= image_tag @user.gravatar_url %>
-        <% end %>
-        <%= @user.user_name %>
-        <%= @user.email %>
-      </h1>
-      <%= link_to "#{@user.following.count}フォロー", following_user_path(@user) %>
-      <%= link_to "#{@user.followers.count}フォロワー", followers_user_path(@user) %>
-      <% unless @user == current_user %>
-        <% if current_user.following?(@user) %>
-          <%= form_for(current_user.active_relationships.find_by(followed_id: @user.id),
-            html: { method: :delete }) do |f| %>
-            <%= f.submit "フォローを外す", class: "btn" %>
-          <% end %>
-        <% else %>
-          <%= form_for(current_user.active_relationships.build) do |f| %>
-            <div><%= hidden_field_tag :followed_id, @user.id %></div>
-            <%= f.submit "フォローする", class: "btn btn-primary" %>
-          <% end %>
-        <% end %>
-      <% end %>
-      <%# あとでメソッド化してリファクタリング %>
-      <% if @user == current_user %>
-        <%= link_to "編集", edit_user_registration_path %>
-      <% end %>
-      <% @posts.each do |post| %>
+  <div class="col-md-2">
+    <%= render 'shared/dashboard' %>
+    <%= render 'shared/follow_form' %>
+    <% if @user == current_user %>
+      <%= link_to "編集", edit_user_registration_path %>
+    <% end %>
+  </div>
+  <div class="posts col-md-10 col-md-offset-4">
+    <% @posts.each do |post| %>
+      <div class="slider">
         <%= link_to post.title, post_path(post) %>
-        <div class="bxslider">
+        <div class="bxslider-mini">
           <% post.pictures.each do |picture| %>
             <%= image_tag picture.thumb.url %>
           <% end %>
         </div>
         <%= post.content %>
-      <% end %>
-    </section>
-  </aside>
+        <div class="like-form">
+          <% if like = Like.find_by(user_id: current_user.id, post_id: post.id) %>
+            <%= link_to like, method: :delete do %>
+              <span class="fas fa-heart like-btn-unlike">お気に入り済み</span>
+            <% end %>
+          <% else %>
+            <%= form_for(@like, url: likes_path) do |f| %>
+              <%= f.label :like %>
+              <%= hidden_field_tag 'like[post_id]', post.id %>
+              <%= button_tag(class: "btn") do %>
+                <%= content_tag :span, "お気に入りに入れる", class: "fas fa-heart like-btn-unlike"%>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="comment-form">
+          <%= form_for(@comment, url: comments_path) do |f| %>
+            <%= f.label :comment, "コメント" %>
+            <%= f.text_area :content, class: "form-control", placeholder: "コメントを入力する" %>
+            <%= hidden_field_tag 'comment[post_id]', post.id %>
+
+            <%= f.submit "投稿", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>

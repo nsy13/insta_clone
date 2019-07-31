@@ -1,6 +1,10 @@
-<footer class="footer">
+<footer class="navbar navbar-fixed-bottom bg-dark">
   <div class="container">
-    <small>Developed by Shuhei Yoshino.</small>
-    <%= link_to "ポスト", "#" %>
+    <div class="nav navbar-nav">
+      <% if user_signed_in? %>
+        <%= link_to "投稿する", new_post_path, class: "post-link" %>
+      <% end %>
+      <small>Developed by Shuhei Yoshino.</small>
+    </>
   </div>
 </footer>

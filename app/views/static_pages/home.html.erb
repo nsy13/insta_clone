@@ -2,24 +2,10 @@
   <div class="page-body">
     <div class="container">
       <div class="row">
-        <div class="col-md-4 dashboard">
-          <div class="profile-contents">
-            <div class="profile-user-info">
-              <%= render 'shared/user_info' %>
-            </div>
-          </div>
-          <div class="relationships">
-            <div class="following">
-              <strong id="following" class="stat"><%= current_user.following.count %></strong>フォロー
-              <%= render 'shared/following' %>
-            </div>
-            <div class="followers">
-              <strong id="followers" class="stat"><%= current_user.followers.count %></strong>フォロワー
-              <%= render 'shared/followers'%>
-            </div>
-          </div>
+        <div class="col-md-2 dashboard">
+          <%= render 'shared/dashboard' %>
         </div>
-        <div class="col-md-8 feed">
+        <div class="col-md-10 feed">
           <%= render 'shared/feed' %>
         </div>
       </div>
