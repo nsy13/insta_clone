@@ -11,7 +11,7 @@
       <% end %>
     </div>
     <div class="like-form">
-      <%= render 'shared/like_form' %>
+      <%= render 'shared/like_form', { post: @post, like: @like } %>
     </div>
     <div class="comment-form">
       <%= render 'shared/comment_form' %>
