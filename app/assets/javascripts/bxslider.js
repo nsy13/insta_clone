@@ -1,5 +1,8 @@
 $(function(){
-  $('.bxslider').bxSlider({
-    slideWidth: 400,
+  $('.bxslider-big').bxSlider({
+    slideWidth: 700,
+  });
+  $('.bxslider-mini').bxSlider({
+    slideWidth: 300,
   });
 });
