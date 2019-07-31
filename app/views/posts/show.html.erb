@@ -16,11 +16,8 @@
     <div class="comment-form">
       <%= render 'shared/comment_form', { post: @post, comment: @comment } %>
     </div>
-    <div>
-      <% @comments.each do |comment| %>
-        <%= comment.content %>
-        <%= link_to "削除", comment, method: :delete %>
-      <% end %>
+    <div class="comment-area">
+      <%= render 'shared/comment_area', { comments: @comments } %>
     </div>
   </div>
 </div>
