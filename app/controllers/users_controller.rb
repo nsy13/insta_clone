@@ -3,6 +3,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @posts = @user.posts.page(params[:page]).per(30)
     @relationship = Relationship.new
+    @like = Like.new
+    @comment = Comment.new
   end
 
   def show_following
