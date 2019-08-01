@@ -1,8 +1,9 @@
-$(function(){
+$(document).ready(function(){
   $('.bxslider-big').bxSlider({
-    slideWidth: 700,
+    slideWidth: 600
   });
   $('.bxslider-mini').bxSlider({
-    slideWidth: 280,
+    slideWidth: 250,
+    touchEnabled: false
   });
 });

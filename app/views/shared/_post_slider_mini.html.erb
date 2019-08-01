@@ -1,7 +1,9 @@
 <%= link_to post.title, post_path(post) %>
 <div class="bxslider-mini">
   <% post.pictures.each do |picture| %>
-    <%= image_tag picture.thumb.url %>
+    <%= link_to image_tag(picture.thumb.url), post, remote: true, data: { "turbolinks" => false } %>
   <% end %>
 </div>
 <%= post.content %>
+
+<div id="post-modal" style="z-index: 10000" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
