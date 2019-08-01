@@ -1,34 +1,38 @@
-<div class="row">
-  <div class="col-md-8 col-md-offset-4 login-form">
-    <h2>Log in</h2>
-    <p class="lead">メールアドレスでログイン</p>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="field">
+<% provide(:title, "ログイン")%>
+
+<div class="login-form">
+  <h2>Log in</h2>
+  <p class="lead">メールアドレスでログイン</p>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="row">
+      <label class="col-md-3 col-form-label">メールアドレス</label>
+      <div class="field col-md-9">
         <%= f.email_field :email, class: "form-group", autofocus: true, autocomplete: "メールアドレス", placeholder: "メールアドレス", class: "form-control" %>
       </div>
 
-      <div class="field">
+      <label class="col-md-3 col-form-label">パスワード</label>
+      <div class="field col-md-9">
         <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "form-control" %>
       </div>
 
       <% if devise_mapping.rememberable? %>
-        <div class="field">
+        <div class="field col-md-12cus">
           <%= f.check_box :remember_me %>
           <%= f.label :remember_me, "ログインしたままにする" %>
         </div>
       <% end %>
 
       <div class="actions">
-        <%= f.submit "ログイン", class: "btn btn-default" %>
+        <%= f.submit "ログイン", class: "btn btn-primary" %>
       </div>
-    <% end %>
-    <div class="sns-login">
-      <p class="lead">メールアドレス以外で登録する</p>
-      <%= link_to user_facebook_omniauth_authorize_path, class: "facebook-link" do %>
-        <i class="fab fa-facebook"></i>
-      <% end %>
     </div>
-
-    <%= render "devise/shared/links" %>
+  <% end %>
+  <div class="sns-login">
+    <p class="lead">メールアドレス以外で登録する</p>
+    <%= link_to user_facebook_omniauth_authorize_path, class: "facebook-link" do %>
+      <i class="fab fa-facebook"></i>
+    <% end %>
   </div>
+
+  <%= render "devise/shared/links" %>
 </div>
