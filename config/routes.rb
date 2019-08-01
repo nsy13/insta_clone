@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root 'static_pages#home'
-  get '/users/:id/following', to: 'users#following', as: :following_user
-  get '/users/:id/followers', to: 'users#followers', as: :followers_user
+  get '/terms_of_service', to: 'static_pages#terms', as: :terms
   patch 'readed', to: 'notifications#readed'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   devise_scope :user do
