@@ -15,6 +15,7 @@ class CommentsController < ApplicationController
   def destroy
     comment = Comment.find(params[:id])
     post = comment.post
+    Notification.find_by(post_id: post.id, comment_user_id: comment.user_id).delete
     comment.delete
     redirect_back_or root_path
   end

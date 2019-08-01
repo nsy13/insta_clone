@@ -14,6 +14,7 @@ class LikesController < ApplicationController
   def destroy
     like = Like.find(params[:id])
     post = like.post
+    Notification.find_by(post_id: post.id, like_user_id: like.user_id).delete
     like.delete
     redirect_back_or root_path
   end
