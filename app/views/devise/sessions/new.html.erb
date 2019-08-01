@@ -4,11 +4,11 @@
     <p class="lead">メールアドレスでログイン</p>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">
-        <%= f.email_field :email, class: "form-group", autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "form-control" %>
+        <%= f.email_field :email, class: "form-group", autofocus: true, autocomplete: "メールアドレス", placeholder: "メールアドレス", class: "form-control" %>
       </div>
 
       <div class="field">
-        <%= f.password_field :password, autocomplete: "current-password", placeholder: "名前", class: "form-control" %>
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "form-control" %>
       </div>
 
       <% if devise_mapping.rememberable? %>
