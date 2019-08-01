@@ -13,6 +13,10 @@
       </div>
 
       <div class="field">
+        <%= f.text_area :self_introduction, autofocus: true, autocomplete: "self_introduction", placeholder: "自己紹介（後から入力することも可能です）", class: "form-control" %>
+      </div>
+
+      <div class="field">
         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "form-control" %>
       </div>
 

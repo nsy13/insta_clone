@@ -19,8 +19,12 @@
         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "form-control" %>
       </div>
 
+      <div class="field">
+        <%= f.text_area :self_introduction, autofocus: true, autocomplete: "self_introduction", placeholder: "自己紹介", class: "form-control" %>
+      </div>
+
       <div class="field">
-        <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "現在のパスワード", class: "form-control" %>
+        <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "現在のパスワード(※必須項目)", class: "form-control" %>
       </div>
 
       <div class="field">
