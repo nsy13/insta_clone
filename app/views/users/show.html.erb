@@ -11,7 +11,7 @@
   <div class="posts col-md-10 col-md-offset-4">
     <% @posts.each do |post| %>
       <div class="slider">
-        <%= render 'shared/post_slider_mini', post: post %>
+        <%= render 'shared/post_slider', post: post %>
         <div class="like-form">
           <%= render 'shared/like_form', { post: post, like: @like } %>
         </div>

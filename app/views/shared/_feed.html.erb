@@ -1,8 +1,8 @@
-<% if @feed_items.any? %>
+<% if feed_items.any? %>
   <ol class="posts">
-    <% @feed_items.each do |feed_item| %>
+    <% feed_items.each do |feed_item| %>
       <div class="slider">
-        <%= render 'shared/post_slider_mini', post: feed_item %>
+        <%= render 'posts/post', post: feed_item %>
         <div class="like-form">
           <%= render 'shared/like_form', { post: feed_item, like: @like } %>
         </div>

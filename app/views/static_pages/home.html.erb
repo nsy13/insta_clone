@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
   <div class="row">
-    <div class="feed col-md-10 col-md-offset-4">
-      <%= render 'shared/feed' %>
+    <div class="feed col-md-12">
+      <%= render 'shared/feed', { feed_items: @feed_items } %>
     </div>
   </div>
 </div>
