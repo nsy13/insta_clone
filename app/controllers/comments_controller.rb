@@ -8,9 +8,7 @@ class CommentsController < ApplicationController
     if comment.save
       user.notifications.create(post_id: @post.id, comment_user_id: current_user.id)
       flash[:success] = "コメントを投稿しました"
-      redirect_to post_path(@post)
-    else
-      redirect_to root_path
+      redirect_back_or root_path
     end
   end
 
@@ -18,7 +16,7 @@ class CommentsController < ApplicationController
     comment = Comment.find(params[:id])
     post = comment.post
     comment.delete
-    redirect_to post
+    redirect_back_or root_path
   end
 
   private

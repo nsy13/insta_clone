@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
+    store_location
     @like = Like.new
     @comment = Comment.new
     if user_signed_in?
