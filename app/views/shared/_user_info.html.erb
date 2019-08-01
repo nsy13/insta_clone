@@ -1,8 +1,9 @@
-<% if user.image %>
-  <%= link_to image_tag(user.image, size: 50), user %>
-<% else %>
-  <%= link_to image_tag(user.gravatar_url(:size => 50)), user %>
-<% end %>
-<h3><%= user.user_name %></h3>
-<span><%= link_to "マイページ", user %></span>
-<span><%= "#{user.posts.count}ポスト" %></span>
+<div class="user_info">
+  <% if user.image %>
+    <%= link_to image_tag(user.image, size: 50), user %>
+  <% else %>
+    <%= link_to image_tag(user.gravatar_url(:size => 50)), user %>
+  <% end %>
+  <h3><%= user.user_name %></h3>
+  <span><%= "#{user.posts.count}ポスト" %></span>
+</div>

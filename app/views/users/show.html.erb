@@ -1,11 +1,12 @@
 <% provide(:title, "マイページ") %>
 <div class="row">
   <div class="col-md-2 dashboard">
-    <%= render 'shared/dashboard', { user: @user } %>
-    <%= render 'shared/follow_form' %>
+    <%= render 'shared/user_info', { user: @user } %>
+    <%= render 'shared/relationships', { user: @user } %>
     <% if @user == current_user %>
       <%= link_to "編集", edit_user_registration_path %>
     <% end %>
+    <%= render 'shared/follow_form' %>
   </div>
   <div class="posts col-md-10 col-md-offset-4">
     <% @posts.each do |post| %>
