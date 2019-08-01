@@ -15,12 +15,29 @@
         <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name", placeholder: "ユーザー名", class: "form-control" %>
       </div>
 
+      <div class="form-check">
+        <label class="form-check-label">
+          <%= f.radio_button :gender, 0 %>男性
+        </label>
+        <label class="form-check-label">
+          <%= f.radio_button :gender, 1 %>女性
+        </label>
+      </div>
+
       <div class="field">
         <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "form-control" %>
       </div>
 
       <div class="field">
         <%= f.text_area :self_introduction, autofocus: true, autocomplete: "self_introduction", placeholder: "自己紹介", class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.text_field :website, autofocus: true, autocomplete: "website", placeholder: "ウェブサイト", class: "form-control" %>
+      </div>
+
+      <div class="field">
+        <%= f.text_field :self_introduction, autofocus: true, autocomplete: "tel", placeholder: "電話番号", class: "form-control" %>
       </div>
 
       <div class="field">

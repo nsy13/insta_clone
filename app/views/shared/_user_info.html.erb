@@ -4,6 +4,13 @@
   <% else %>
     <%= link_to image_tag(user.gravatar_url(:size => 50)), user %>
   <% end %>
-  <h3><%= user.user_name %></h3>
+  <h3><%= user.full_name %></h3>
+  <h5><%= "@#{user.user_name}" %></h5>
   <span><%= "#{user.posts.count}ポスト" %></span>
+  <%= link_to user.website do %>
+    <i class="fas fa-link">Web</i>
+  <% end %>
+  <div class="self-introduction">
+    <%= user.self_introduction %>
+  </div>
 </div>

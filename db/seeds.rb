@@ -2,6 +2,10 @@
 User.create!(user_name: "Test User",
              full_name: "Test Tarou",
              email: "test@test.com",
+             website: "https://mobile.twitter.com",
+             gender: 0,
+             tel: "080-1234-5678",
+             self_introduction: "よろしくお願いします！",
              password: "hogehoge",
              password_confirmation: "hogehoge")
 
@@ -9,6 +13,10 @@ User.create!(user_name: "Test User",
   User.create!(user_name: "Test User No.#{n}",
                full_name: Faker::Name.name,
                email: "test#{n}@test.com",
+               website: "https://mobile.twitter.com",
+               gender: 1,
+               tel: "#{n}-1234-5678",
+               self_introduction: "No.#{n}です！よろしくお願いします！",
                password: "hogehoge",
                password_confirmation: "hogehoge")
 end

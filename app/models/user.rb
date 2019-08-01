@@ -22,7 +22,7 @@ class User < ApplicationRecord
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
-      user.user_name = auth.info.name
+      user.user_name = SecureRandom.urlsafe_base64(10)
       user.full_name = auth.info.name
       user.image = auth.info.image
     end
