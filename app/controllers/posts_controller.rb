@@ -21,6 +21,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    store_location
     @post = Post.find(params[:id])
     @user = @post.user
     @comments = @post.comments.all

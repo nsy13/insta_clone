@@ -11,13 +11,13 @@
   <div class="posts col-md-10 col-md-offset-4">
     <% @posts.each do |post| %>
       <div class="slider">
-        <%= render 'shared/post_slider', post: post %>
-        <div class="like-form">
-          <%= render 'shared/like_form', { post: post, like: @like } %>
-        </div>
-        <div class="comment-form">
-          <%= render 'shared/comment_form', { post: post, comment: @comment }%>
-        </div>
+        <%= render 'shared/post_slider', { post: post } %>
+      </div>
+      <div class="like-form">
+        <%= render 'shared/like_form', { post: post, like: @like } %>
+      </div>
+      <div class="comment-form">
+        <%= render 'shared/comment_form', { post: post, comment: @comment } %>
       </div>
     <% end %>
   </div>

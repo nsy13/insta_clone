@@ -14,11 +14,11 @@ module NotificationsHelper
     end
   end
 
-  def user(user_id)
+  def find_user(user_id)
     User.find_by(id: user_id)
   end
 
-  def post(post_id)
+  def find_post(post_id)
     Post.find_by(id: post_id)
   end
 end
