@@ -9,7 +9,7 @@
       </div>
       <div class="picture-selecter">
         <span class="picture">
-          <%= f.file_field :pictures, multiple: true %>
+          <%= f.file_field :pictures, multiple: true, accept: 'image/jpeg, image/gif, image/png' %>
         </span>
       </div>
       <%= f.submit "投稿する", class: "btn btn-primary" %>
