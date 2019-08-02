@@ -1,28 +1,29 @@
-<% if user_signed_in? %>
-  <% provide(:title, current_user.full_name)%>
-  <div class="row">
-    <div class="feed col-md-12">
-      <%= render 'shared/feed', { feed_items: @feed_items } %>
+<div class="home-body">
+  <% if user_signed_in? %>
+    <% provide(:title, current_user.full_name)%>
+    <div class="row">
+      <div class="feed col-md-12">
+        <%= render 'shared/feed', { feed_items: @feed_items } %>
+      </div>
     </div>
-  </div>
-</div>
-</div>
-<% else %>
-<div class="page-body">
-<div class="container">
-  <div class="row">
-    <div class="col-md-6">
+  <% else %>
+    <div class="top-contents">
+      <i class="fas fa-camera"></i>
       <div class="top-message">
         <h1>InstaClone</h1>
         <p>世界中の人と写真をシェアしよう</p>
       </div>
     </div>
-    <div class="col-md-6">
-      <div class="signup-block">
-        <%= link_to "メールアドレスで登録", new_user_registration_path, class: "btn btn-link" %>
-        <p>or</p>
+    <div class="row justify-content-md-center signup-block">
+      <div class="col col-md-3 mail-signup">
+        <%= link_to "メールアドレスで登録", new_user_registration_path, class: "btn btn-outline-primary" %>
+      </div>
+      <div class="col-md-auto">
+        <p>または</p>
+      </div>
+      <div class="col col-md-3 Facebook-signup">
         <%= link_to "Facebookアカウントで登録", user_facebook_omniauth_authorize_path, class: "btn btn-primary" %>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

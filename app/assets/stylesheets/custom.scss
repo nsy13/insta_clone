@@ -1,10 +1,83 @@
-body {
+@import "jquery.bxslider";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+// mixins, variables, etc.
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
 }
 
-.like-form {
-  label {
-    display: none;
-  }
+// universal
+
+body {
+  width: 100%;
+}
+
+.wrapper {
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+.container {
+  padding-top: 60px;
+  width: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #777;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+// home
+
+.top-contents {
+  text-align: center;
+  position: relative;
+}
+
+.fa-camera {
+  font-size: 35em;
+  color: skyblue;
+  opacity: 0.4;
+}
+
+.top-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.signup-block {
+  text-align: center;
 }
 
 .slider {
@@ -13,6 +86,82 @@ body {
   width: 33%;
 }
 
+// header
+.navbar-fixed-top {
+  a {
+    color: white;
+    float: right;
+  }
+  position: fixed;
+  top: 0;
+  margin-left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  margin-left: 30px;
+  font-size: 2em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+}
+
+#logo:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+// footer
+footer {
+  background-color: #343a40;
+  position: fixed;
+  bottom: 0;
+  height: 60px;
+  width: 100%;
+  color: white;
+  text-align: center;
+  line-height: 60px;
+  .post-link {
+    width: 10%;
+    font-size: 1.3em;
+  }
+  small {
+    float: left;
+    position: relative;
+  }
+  ul {
+    float: right;
+    margin-right: 15px;
+  }
+  ul li {
+    float: left;
+    margin-left: 15px;
+  }
+  a {
+    color: #fff;
+  }
+}
+
+
+
+// user page
+
+
+// post page
+
+
+// like index
+
+
+// notification index
+
+
+// terms-of-servise
 .wrapHINAGATA {
   border-style: none;
   font-size: 100%;
@@ -22,6 +171,18 @@ body {
   text-align: left;
 }
 
+.like-form {
+  label {
+    display: none;
+  }
+}
+
+
 .facebook-link {
   font-size: 3em;
+}
+
+.bg-blue {
+  background-color: blue;
+  opacity: 0.5;
 }
