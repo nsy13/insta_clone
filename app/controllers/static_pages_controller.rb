@@ -4,7 +4,7 @@ class StaticPagesController < ApplicationController
     @like = Like.new
     @comment = Comment.new
     if user_signed_in?
-      @feed_items = current_user.feed.page(params[:page]).per(30)
+      @feed_items = current_user.feed.serch(params[:serch]).page(params[:page]).per(30)
     end
   end
 

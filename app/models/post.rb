@@ -7,4 +7,12 @@ class Post < ApplicationRecord
   validates :content, presence: true, length: { maximum: 300 }
   validates :pictures, presence: true
   mount_uploaders :pictures, PictureUploader
+
+  def self.serch(serch)
+    if serch
+      where(['content LIKE ?', "%#{serch}%"])
+    else
+      all
+    end
+  end
 end
