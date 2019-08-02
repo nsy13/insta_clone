@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     if @post.save
       flash[:success] = "投稿しました"
-      redirect_to root_url
+      redirect_to @post
     else
       @feed_items = []
       render 'static_pages/home'
@@ -22,6 +22,7 @@ class PostsController < ApplicationController
 
   def show
     store_location
+    readed if params[:notification_id]
     @post = Post.find(params[:id])
     @user = @post.user
     @comments = @post.comments.all
@@ -40,6 +41,10 @@ class PostsController < ApplicationController
     post.delete
     flash[:success] = "削除しました"
     redirect_to root_url
+  end
+
+  def readed
+    current_user.notifications.where(id: params[:notification_id]).update(already: true)
   end
 
   private

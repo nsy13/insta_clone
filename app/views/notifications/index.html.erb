@@ -2,7 +2,7 @@
 
 <div>
   <% current_user.notifications.each do |notification| %>
-    <%= link_to post_path(notification.post_id, notification: { id: notification.id } ), data: { "turbolinks" => false } do %>
+    <%= link_to post_path(notification.post_id, notification_id: notification.id ), data: { "turbolinks" => false } do %>
       <%if notification.already == false %>
         <div class="bg-blue">
           <%= render 'shared/notification_contents', notification: notification %>
