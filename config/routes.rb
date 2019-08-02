@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'static_pages#home'
   get '/terms_of_service', to: 'static_pages#terms', as: :terms
+  get '/modal', to: 'posts#modal', as: :modal
   patch 'readed', to: 'notifications#readed'
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   devise_scope :user do

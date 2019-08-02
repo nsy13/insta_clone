@@ -29,6 +29,11 @@ class PostsController < ApplicationController
     @like = Like.new
   end
 
+  def modal
+    @post = Post.find(params[:id])
+    @comments = @post.comments.all
+  end
+
   def destroy
     post = Post.find(params[:id])
     post.delete
