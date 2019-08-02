@@ -1,9 +1,5 @@
 <div class="user_info">
-  <% if user.image %>
-    <%= link_to image_tag(user.image, size: 50), user %>
-  <% else %>
-    <%= link_to image_tag(user.gravatar_url(:size => 50)), user %>
-  <% end %>
+  <%= link_to avatar(user, 50) %>
   <h3><%= user.full_name %></h3>
   <h5><%= "@#{user.user_name}" %></h5>
   <span><%= "#{user.posts.count}ポスト" %></span>

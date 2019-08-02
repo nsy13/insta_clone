@@ -1,6 +1,6 @@
 <% users = user.following %>
 <div class=user-avatars>
   <% users.each do |user| %>
-    <%= link_to image_tag(user.gravatar_url(:size => 30)), user %>
+    <%= link_to avatar(user, 30), user %>
   <% end %>
 </div>
