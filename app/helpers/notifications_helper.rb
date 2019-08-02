@@ -6,11 +6,11 @@ module NotificationsHelper
     return (other_users_notification - my_like - my_comment)
   end
 
-  def avatar(user)
+  def avatar(user, size)
     if user.image
-      image_tag user.image
+      image_tag user.image, size: size
     else
-      image_tag user.gravatar_url
+      image_tag user.gravatar_url, size: size
     end
   end
 
