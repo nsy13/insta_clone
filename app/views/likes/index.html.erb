@@ -1,0 +1,12 @@
+<% provide(:title, "お気に入り") %>
+
+<div>
+  <% current_user.likes.each do |like| %>
+    <li>
+      <%= image_tag find_post(like.post_id).pictures[0].thumb_mini.url %>
+      <%= find_post(like.post_id).content %>
+      <%= l find_post(like.post_id).created_at %>
+    </li>
+  <% end %>
+</div>
+<%= link_to "ホームへ戻る", root_path, data: { "turbolinks" => false } %>

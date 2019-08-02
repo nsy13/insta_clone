@@ -23,9 +23,10 @@
               <%= link_to "既読にする", readed_path, method: :patch, class: "dropdown-item" %>
             </div>
           </li>
+          <li>
+            <%= link_to "お気に入り", likes_path %>
+          </li>
         <% else %>
-          <li><%= link_to "投稿を見てみる", "#" %></li>
-          <li><%= link_to "ユーザーを見てみる", "#" %></li>
           <li><%= link_to "ログイン", login_path %></li>
           <li><%= link_to "新規登録", signup_path %></li>
         <% end %>
