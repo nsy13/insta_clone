@@ -1,5 +1,5 @@
 class NotificationsController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :readed]
+  before_action :authenticate_user!, only: [:index, :readed_all]
 
   def index
   end
