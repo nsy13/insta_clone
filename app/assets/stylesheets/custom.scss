@@ -3,14 +3,6 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-// mixins, variables, etc.
-
-@mixin box_sizing {
-  -moz-box-sizing:    border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing:         border-box;
-}
-
 // universal
 
 body {
@@ -23,7 +15,7 @@ body {
 }
 
 .container {
-  padding-top: 60px;
+  padding-top: 100px;
   width: 100%;
 }
 
@@ -54,6 +46,36 @@ h2 {
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+}
+
+// flash
+
+.alert-error {
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48;
+  text-align: left;
+}
+
+.alert-alert {
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48;
+  text-align: left;
+}
+
+.alert-success {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
+  text-align: left;
+}
+
+.alert-notice {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
+  text-align: left;
 }
 
 // home
@@ -121,7 +143,7 @@ p {
   top: 0;
   margin-left: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 10000;
 }
 
 #logo {
