@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
   $('.bxslider-big').bxSlider({
     slideWidth: 600
   });

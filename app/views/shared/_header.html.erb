@@ -1,6 +1,6 @@
 <header>
   <nav class="navbar navbar-fixed-top bg-dark navbar-expand-lg">
-    <%= link_to "InstaClone", root_path, id: "logo", data: { "turbolinks" => false }, class:"navbar-brand" %>
+    <%= link_to "InstaClone", root_path, id: "logo", class:"navbar-brand" %>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -14,7 +14,7 @@
               <%= "#{current_user.full_name}さん" %>
             </a>
             <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
-              <%= link_to "マイページ", current_user, class: "dropdown-item", data: { "turbolinks" => false } %>
+              <%= link_to "マイページ", current_user, class: "dropdown-item" %>
               <%= link_to "プロフィール編集", edit_user_registration_path(current_user), class: "dropdown-item" %>
               <div class="dropdown-divider"></div>
               <%= link_to "ログアウト", logout_path, method: :delete, class: "dropdown-item" %>
@@ -25,7 +25,7 @@
               <%= "#{unread_count}件の通知" %>
             </a>
             <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
-              <%= link_to "通知一覧", notifications_path, class: "dropdown-item", data: { "turbolinks" => false } %>
+              <%= link_to "通知一覧", notifications_path, class: "dropdown-item" %>
               <%= link_to "すべて既読にする", readed_path, method: :patch, class: "dropdown-item" %>
             </div>
           </li>
