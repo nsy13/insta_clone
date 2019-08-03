@@ -17,6 +17,7 @@ class CommentsController < ApplicationController
     post = comment.post
     Notification.find_by(post_id: post.id, comment_user_id: comment.user_id).delete
     comment.delete
+    flash[:success] = "コメントを削除しました"
     redirect_back_or root_path
   end
 

@@ -9,6 +9,7 @@ class LikesController < ApplicationController
     user = @post.user
     like = current_user.likes.build(like_params)
     if like.save
+      flash[:success] = "お気に入りに追加しました"
       user.notifications.create(post_id: @post.id, like_user_id: current_user.id)
       redirect_back_or root_path
     end
