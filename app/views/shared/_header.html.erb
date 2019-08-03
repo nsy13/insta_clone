@@ -42,11 +42,11 @@
         <% end %>
       </ul>
     </div>
-    <form class="form-inline my-2 my-lg-0">
-    <%= form_tag root_path method: :get, class: "form-group" do %>
-      <%= text_field_tag :serch %>
-      <%= submit_tag "検索", class: "btn btn-outline-info" %>
-    <% end %>
-    </form>
+    <div class="form-inline my-2 my-lg-0">
+      <%= form_tag root_path, method: :get, class: "form-group" do %>
+        <%= text_field_tag :serch %>
+        <%= submit_tag "検索", class: "btn btn-outline-info" %>
+      <% end %>
+    </div>
   </nav>
 </header>
