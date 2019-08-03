@@ -15,8 +15,6 @@
       </div>
       <%= @post.content %>
     </div>
-    <div class="modal-footer">
-      <%= render 'shared/comment_area', { comments: @comments } %>
-    </div>
+    <%= render 'shared/comment_area', { comments: @comments } %>
   </div>
 </div>

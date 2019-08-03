@@ -24,7 +24,7 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= "#{unread_count}件の通知" %>
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
               <%= link_to "通知一覧", notifications_path, class: "dropdown-item", data: { "turbolinks" => false } %>
               <%= link_to "すべて既読にする", readed_path, method: :patch, class: "dropdown-item" %>
             </div>
@@ -42,5 +42,11 @@
         <% end %>
       </ul>
     </div>
+    <form class="form-inline my-2 my-lg-0">
+    <%= form_tag root_path method: :get, class: "form-group" do %>
+      <%= text_field_tag :serch %>
+      <%= submit_tag "検索", class: "btn btn-outline-info" %>
+    <% end %>
+    </form>
   </nav>
 </header>

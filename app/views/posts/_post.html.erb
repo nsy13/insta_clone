@@ -1,14 +1,20 @@
 <li id="post-<%= post.id %>">
-  <%= link_to avatar(post.user, 50), post %>
-  <span class="user"><%= link_to "@#{post.user.user_name}", post.user %></span>
   <div class="bxslider-mini">
     <% post.pictures.each do |picture| %>
       <%= link_to image_tag(picture.thumb.url), modal_path(id: post.id), remote: true, data: { "turbolinks" => false } %>
     <% end %>
   </div>
-  <span class="content"><%= post.content %></span>
-  <span class="timestamp"><%= "#{time_ago_in_words(post.created_at)}前" %></span>
-  <span class="show-details"><%= link_to "詳しくみる", post %></span>
+  <div class="post-info">
+    <div class="upper-block">
+      <%= link_to avatar(post.user, 50), post %>
+      <span class="user"><%= link_to "@#{post.user.user_name}", post.user %></span><br />
+      <span class="timestamp"><%= "#{time_ago_in_words(post.created_at)}前" %></span>
+      <span class="show-details"><%= link_to "詳しくみる", post %></span>
+    </div>
+    <div class="post-content">
+      <span class="content"><%= post.content %></span>
+    </div>
+  </div>
 </li>
 
 <div id="post-modal" style="z-index: 10000" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
