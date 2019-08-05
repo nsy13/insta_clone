@@ -4,3 +4,12 @@ inherit_from:
 Rails:
   Enabled: true
 
+AllCops:
+  Exclude:
+    - 'public/**/*'
+    - 'tmp/**/*'
+    - 'log/**/*'
+
+Metrics/LineLength:
+  Exclude:
+    - 'config/**/*'
