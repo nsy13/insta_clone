@@ -1,8 +1,12 @@
 module NotificationsHelper
   def unread_count
     other_users_notification = Notification.where(user_id: current_user.id, already: false).count
-    my_like = Notification.where(user_id: current_user.id, like_user_id: current_user.id, already: false).count
-    my_comment = Notification.where(user_id: current_user.id, comment_user_id: current_user.id, already: false).count
+    my_like = Notification.where(user_id: current_user.id,
+                                 like_user_id: current_user.id,
+                                 already: false).count
+    my_comment = Notification.where(user_id: current_user.id,
+                                    comment_user_id: current_user.id,
+                                    already: false).count
     return (other_users_notification - my_like - my_comment)
   end
 
