@@ -1,0 +1,12 @@
+<div class="user_info">
+  <%= link_to avatar(user, 50) %>
+  <h3><%= user.full_name %></h3>
+  <h5><%= "@#{user.user_name}" %></h5>
+  <span><%= "#{user.posts.count}ポスト" %></span>
+  <%= link_to user.website do %>
+    <i class="fas fa-link">Web</i>
+  <% end %>
+  <div class="self-introduction">
+    <%= user.self_introduction %>
+  </div>
+</div>

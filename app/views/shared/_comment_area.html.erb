@@ -1,0 +1,9 @@
+<ul class=comment-detail>
+  <li>
+    <% comments.each do |comment| %>
+      <%= avatar(comment.user, 30) %>
+      <%= comment.content %>
+      <%= link_to "削除", comment, method: :delete %>
+    <% end %>
+  </li>
+</ul>

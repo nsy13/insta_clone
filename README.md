@@ -1,24 +1,29 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 苦労した点
+- HTML/CSS、BootstrapによるUIデザインに苦戦しました。
+- Devise等の初めて扱うgemの理解と導入に時間がかかってしまいました。
+- Follow関係のActive/Passiveの理解が未だ浅く、混乱します。
 
-Things you may want to cover:
+## 学んだ点
+- 今回、様々なControllerやModelを構築したおかげで、MVCの関係性についてはチュートリアルを学んでいた頃と比べ、格段に理解が深まっていると思います。
+「この機能を実装する」という課題に対して、ぼんやりとではありますが、ゴールへの道筋が見えるようになってきました。
+- デバッガー(Byebug)やリンター、Dockerといったツールに対して、サブ課題を通して使い方や、その利便性を学びました。
 
-* Ruby version
+## 自慢したい点
+- Docker環境で開発を進めました。
+- 複数画像の投稿に対応し、スライドショーで見られるようにしました。
+- Rubocopを活用し、書式を修正しました（全ては対応しきれず）。
 
-* System dependencies
+## できなかった点
+- テストは書けませんでした。
+- メーラー機能の実装ができませんでした。
+- 下記エラーが解決できませんでした。
+  - 各モデルのレコードが `dependent: :destroy`としているにも関わらず、親の削除と同時に削除されないエラー
+  - 本番環境にて不正なURLにアクセスした際、ユーザー用のエラー画面ではなく、開発者向けのエラー画面が表示されてしまう現象
+- レスポンシブ対応が不完全です。
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 相談したい点・質問したい点
+課題とは直接関係はないのですが、よろしければ下記の質問にお答えいただければ幸いです。
+- サーバーサイドエンジニアとして、フロントエンドを実装する力はどの程度必要とされるのでしょうか。Bootstrapや、jqueryの基礎がわかっている程度でいいのでしょうか。現役エンジニアの方の意見をお聞きしたいです。
+- git管理にGitKrakenというGUIを使用しているのですが、実際の現場ではCUIとGUIどちらを使うことが多いのでしょうか。

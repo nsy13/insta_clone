@@ -1,0 +1,24 @@
+<% provide(:title, @user.full_name) %>
+<div class="row">
+  <div class="col-md-2 dashboard">
+    <%= render 'shared/user_info', { user: @user } %>
+    <%= render 'shared/relationships', { user: @user } %>
+    <% if @user == current_user %>
+      <%= link_to "編集", edit_user_registration_path %>
+    <% end %>
+    <%= render 'shared/follow_form' %>
+  </div>
+  <div class="posts col-md-10 col-md-offset-4">
+    <% @posts.each do |post| %>
+      <div class="slider">
+        <%= render 'shared/post_slider', { post: post } %>
+        <div class="like-form">
+          <%= render 'shared/like_form', { post: post, like: @like } %>
+        </div>
+        <div class="comment-form">
+          <%= render 'shared/comment_form', { post: post, comment: @comment } %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

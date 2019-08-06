@@ -1,0 +1,30 @@
+<% provide(:title, "#{@user.full_name}の投稿") %>
+<div class="row">
+  <div class="col-md-2 dashboard">
+    <%= render 'shared/user_info', { user: @user } %>
+    <%= render 'shared/relationships', { user: @user } %>
+    <% if @user == current_user %>
+      <%= link_to "編集", edit_user_registration_path %>
+    <% end %>
+    <%= render 'shared/follow_form' %>
+  </div>
+  <div class="post col-md-10 col-md-offset-4">
+    <div class="bxslider-big">
+      <% @post.pictures.each do |picture| %>
+        <%= image_tag(picture.url) %>
+      <% end %>
+    </div>
+    <div class="post-contents">
+      <%= @post.content %>
+    </div>
+    <div class="like-form">
+      <%= render 'shared/like_form', { post: @post, like: @like } %>
+    </div>
+    <div class="comment-form">
+      <%= render 'shared/comment_form', { post: @post, comment: @comment }%>
+    </div>
+    <div class="comment-area">
+      <%= render 'shared/comment_area', { comments: @comments } %>
+    </div>
+  </div>
+</div>

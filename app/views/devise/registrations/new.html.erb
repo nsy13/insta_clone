@@ -1,0 +1,44 @@
+<% provide(:title, "ユーザー登録")%>
+
+<div class="signup-form">
+  <h2>Sign up</h2>
+  <%= link_to "利用規約を読む", terms_path %>
+  <p class="lead">メールアドレスで登録</p>
+  <%= form_for(resource, class: "form-group", as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="row">
+      <label class="col-md-3 col-form-label">名前</label>
+      <div class="field col-md-9">
+        <%= f.text_field :full_name, autofocus: true, autocomplete: "full_name", placeholder: "名前", class: "form-control" %>
+      </div>
+
+      <label class="col-md-3 col-form-label">ユーザー名</label>
+      <div class="field col-md-9">
+        <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name", placeholder: "ユーザー名", class: "form-control" %>
+      </div>
+
+      <label class="col-md-3 col-form-label">メールアドレス</label>
+      <div class="field col-md-9">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "form-control" %>
+      </div>
+
+      <label class="col-md-3 col-form-label">パスワード</label>
+      <div class="field col-md-9">
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード", class: "form-control" %>
+      </div>
+
+      <div class="action">
+        <%= f.submit "登録する", class:"btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+  <div class="sns-login">
+    <p class="lead">メールアドレス以外で登録する</p>
+    <%= link_to user_facebook_omniauth_authorize_path, class: "facebook-link" do %>
+      <i class="fab fa-facebook"></i>
+    <% end %>
+  </div>
+
+  <%= render "devise/shared/links" %>
+</div>

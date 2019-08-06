@@ -1,0 +1,52 @@
+<header>
+  <nav class="navbar navbar-fixed-top bg-dark navbar-expand-lg">
+    <%= link_to "InstaClone", root_path, id: "logo", class:"navbar-brand" %>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav mr-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= "#{current_user.full_name}さん" %>
+            </a>
+            <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+              <%= link_to "マイページ", current_user, class: "dropdown-item" %>
+              <%= link_to "プロフィール編集", edit_user_registration_path(current_user), class: "dropdown-item" %>
+              <div class="dropdown-divider"></div>
+              <%= link_to "ログアウト", logout_path, method: :delete, class: "dropdown-item" %>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= "#{unread_count}件の通知" %>
+            </a>
+            <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+              <%= link_to "通知一覧", notifications_path, class: "dropdown-item" %>
+              <%= link_to "すべて既読にする", readed_path, method: :patch, class: "dropdown-item" %>
+            </div>
+          </li>
+          <li class="nav-item active">
+            <%= link_to "お気に入り", likes_path, class:"nav-link" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "ログイン", login_path, class:"nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "新規登録", signup_path, class:"nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="form-inline my-2 my-lg-0">
+      <%= form_tag root_path, method: :get, class: "form-group" do %>
+        <%= text_field_tag :serch %>
+        <%= submit_tag "検索", class: "btn btn-outline-info" %>
+      <% end %>
+    </div>
+  </nav>
+</header>

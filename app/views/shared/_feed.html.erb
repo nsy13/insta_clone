@@ -1,0 +1,21 @@
+<% if feed_items.any? %>
+  <ol class="posts">
+    <% feed_items.each do |feed_item| %>
+      <div class="slider">
+        <%= render 'posts/post', post: feed_item %>
+        <div class="like-form">
+          <%= render 'shared/like_form', { post: feed_item, like: @like } %>
+        </div>
+        <div class="comment-form">
+          <%= render 'shared/comment_form', { post: feed_item, comment: @comment }%>
+        </div>
+        <div class="comment-area">
+          <%= render 'shared/comment_area', { comments: feed_item.comments } %>
+        </div>
+      </div>
+    <% end %>
+  </ol>
+  <%= paginate @feed_items %>
+<% else %>
+  <p>投稿がありません</p>
+<% end %>
